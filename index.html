@@ -4,7 +4,7 @@
 <head>
 
 	<title>RPG Game</title>
-	
+
 	<!-- Added link to the jQuery Library -->
   <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
@@ -17,9 +17,17 @@
 <body>
 
 	<div id="vader" class="character" data-character="vader">Darth Vader</div>
+
 	<div id="skywalker" class="character" data-character="skywalker">Luke Skywalker</div>
+
 	<div id="yoda" class="character" data-character="yoda">Master Yoda</div>
+
 	<div id="obi" class="character" data-character="obi">Obi Wan Kinobi</div>
+
+	<button onclick="vaderAttack()">Vader Attack</button>
+	<button onclick="skywalkerAttack()">Skywalker Attack</button>
+	<button onclick="yodaAttack()">Yoda Attack</button>
+	<button onclick="obiAttack()">Obi Attack</button>
 
 	<script src="assets/javascript/game.js"></script>
 
