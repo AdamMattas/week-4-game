@@ -3,10 +3,10 @@
 
 <head>
 
-	<title>RPG Game</title>
+	<title>Star Wars RPG Game</title>
 
 	<!-- Added link to the jQuery Library -->
-  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -16,18 +16,73 @@
 
 <body>
 
-	<div id="vader" class="character" data-character="vader">Darth Vader</div>
+	<audio id="saber-on" src="assets/audio/coolsaber.wav" type="audio/wav"></audio>
 
-	<div id="skywalker" class="character" data-character="skywalker">Luke Skywalker</div>
+	<audio id="fight-on" src="assets/audio/fight2.wav" type="audio/wav"></audio>
 
-	<div id="yoda" class="character" data-character="yoda">Master Yoda</div>
+	<div class="back">
 
-	<div id="obi" class="character" data-character="obi">Obi Wan Kinobi</div>
+		<div class="header">
 
-	<button onclick="vaderAttack()">Vader Attack</button>
-	<button onclick="skywalkerAttack()">Skywalker Attack</button>
-	<button onclick="yodaAttack()">Yoda Attack</button>
-	<button onclick="obiAttack()">Obi Attack</button>
+			<div class="head-wrapper">
+
+				<div id="name-left"></div>
+				
+				<div id="saber-left" class="saber-left"></div>
+
+				<div id="progress-left"></div>
+
+				<div class="symbol"></div>
+
+				<div id="name-right"></div>
+
+				<div id="saber-right" class="saber-right"></div>
+
+				<div id="progress-right"></div>
+
+			</div>
+
+		</div>
+
+		<div class="player-side"></div>
+
+		<div class="computer-side"></div>
+
+		<div class="wrapper">
+
+			<h1 id="victory-message" class="victory-msg hide">You have defeated</h1>
+			<h1 id="victory-name" class="victory-nm hide"></h1>
+
+			<h1 id="defeat-message" class="defeat-msg hide">You have been defeated by</h1>
+			<h1 id="defeat-name" class="defeat-nm hide"></h1>
+
+			<div id="side" class="side-cover hide"></div>
+
+			<div id="skywalker" class="character" data-character="skywalker">
+				<div id="attack-sky" class="attack-count"></div>
+				<div id="counter-sky" class="counter-count"></div>
+			</div>
+
+			<div id="obi" class="character" data-character="obi">
+				<div id="attack-obi" class="attack-count"></div>
+				<div id="counter-obi" class="counter-count"></div>
+			</div>
+
+			<div id="yoda" class="character" data-character="yoda">
+				<div id="attack-yoda" class="attack-count"></div>
+				<div id="counter-yoda" class="counter-count"></div>
+			</div>
+
+			<div id="vader" class="character" data-character="vader">
+				<div id="attack-vader" class="attack-count"></div>
+				<div id="counter-vader" class="counter-count"></div>
+			</div>
+
+			<div id="attack" class="attack hide">Attack</div>
+
+		</div>
+
+	</div>
 
 	<script src="assets/javascript/game.js"></script>
 

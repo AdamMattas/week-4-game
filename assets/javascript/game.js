@@ -1,11 +1,16 @@
 //Initialize variables
 var player = '';
+var playerName = $('#name-left');
 var computer = '';
+var computerName = $('#name-right');
+var saberOn = $('#saber-on')[0];
+var fightOn = $('#fight-on')[0];
+var wins = 0;
 var vader = {
 	name: "Darth Vader",
   health: 100,
-	attack: 6,
-	counter: 6,
+	attack: 9,
+	counter: 15,
 	fight: false,
 	alive: true,
 	enemy: true
@@ -13,8 +18,8 @@ var vader = {
 var skywalker = {
   name: "Luke Skywalker",
   health: 100,
-	attack: 5,
-	counter: 5,
+	attack: 7,
+	counter: 10,
 	fight: false,
 	alive: true,
 	enemy: true
@@ -22,24 +27,32 @@ var skywalker = {
 var yoda = {
   name: "Master Yoda",
   health: 100,
-	attack: 7,
-	counter: 7,
+	attack: 9,
+	counter: 17,
 	fight: false,
 	alive: true,
 	enemy: true
 };
 var obi = {
-  name: "Obi Wan Kinobi",
+  name: "Obi Wan Kenobi",
   health: 100,
-	attack: 5,
-	counter: 6,
+	attack: 8,
+	counter: 13,
 	fight: false,
 	alive: true,
 	enemy: true
 };
 
-
 $(document).ready(function(){
+	$('#attack-sky').html(skywalker.attack);
+	$('#counter-sky').html(skywalker.counter);
+	$('#attack-obi').html(obi.attack);
+	$('#counter-obi').html(obi.counter);
+	$('#attack-yoda').html(yoda.attack);
+	$('#counter-yoda').html(yoda.counter);
+	$('#attack-vader').html(vader.attack);
+	$('#counter-vader').html(vader.counter);
+
 	//Select the character to fight as for entire game & move to arena
 	//Move enemies to the enemy section of the screen
 	$(document).on('click', '.character', function(){
@@ -65,6 +78,9 @@ $(document).ready(function(){
       	$('#obi').removeClass('character').addClass('friend');
       	$('#skywalker, #vader, #yoda').removeClass('character').addClass('enemy');
       }
+      $('#name-left').html(player.name);
+      progressBarLeft(player.health);
+      $('#saber-on').get(0).play();
   });
 
 	//On particular enemy click, set as in fight and move to arena
@@ -87,69 +103,103 @@ $(document).ready(function(){
       	computer.fight = true;
       	$('#obi').removeClass('enemy').addClass('enemy-fight');
       }
+      $('#victory-message').addClass('hide');
+			$('#victory-name').addClass('hide');
+			$('#defeat-message').addClass('hide');
+			$('#defeat-name').addClass('hide');
+      $('#name-right').html(computer.name);
+      $('#attack').removeClass('hide');
+      $('#side').removeClass('hide');
+      progressBarRight(computer.health);
+      $('#saber-on').get(0).play();
 	});
 
-	//Check if enemy's health is at or below zero
-
-	//The defender will immediately counter attack and deal damage
-
-	//Check if player's health is at or below zero
-
-	//Check if defender's health is at zero
-
-	//If enemy has been defeated remove from defender area
-
-	//Check if game has been won
-
 	//If game has not been won, the player will pick a new enemy to fight
-});
 
 	//On attack button click, the player will attack the enemy 1 time and deal damage
 	//Player's power increases by 6 on each attack
-	function vaderAttack(){
-		player.attack+=6;
-		computer.health-=6;
-		if(computer.name == 'Luke Skywalker'){
-			skywalkerCounter();
-		}else if(computer.name == 'Master Yoda'){
-			yodaCounter();
-		}else{
-			obiCounter();			
-		}
-	};
+		$(document).on('click', '#attack', function(){
+			if(player.health > 0 && computer.health > 0){
+				computer.health -= player.attack;
+				if(player.name == 'Luke Skywalker'){
+					player.attack+=7;
+					$('#attack-sky').html(player.attack);
+				}else if(player.name == 'Obi Wan Kenobi'){
+					player.attack+=8;
+					$('#attack-obi').html(player.attack);
+				}else if(player.name == 'Master Yoda'){
+					player.attack+=9;
+					$('#attack-yoda').html(player.attack);
+				}else{
+					player.attack+=9;
+					$('#attack-vader').html(player.attack);
+				}
+				//Check if enemy's health is at or below zero
+				if(computer.health > 0){
+					//The defender will immediately counter attack and deal damage
+					player.health -= computer.counter;
+				}else if(computer.health <= 0){
+					wins++;
+					$('#attack').addClass('hide');
+					$('#side').addClass('hide');
+					//Check if game has been won
+					if(wins == 3){
+						$('#victory-message').removeClass('hide');
+						$('#victory-name').removeClass('hide');
+						$('#victory-name').html('all of your enemies!');
+					}else if (computer.name == 'Darth Vader'){
+						//If enemy has been defeated remove from defender area
+						$('#vader').removeClass('enemy-fight').addClass('defeated');
+						$('#victory-message').removeClass('hide');
+						$('#victory-name').removeClass('hide');
+						$('#victory-name').html(computer.name + '!');
+					}else if (computer.name == 'Luke Skywalker'){
+						//If enemy has been defeated remove from defender area
+						$('#skywalker').removeClass('enemy-fight').addClass('defeated');
+						$('#victory-message').removeClass('hide');
+						$('#victory-name').removeClass('hide');
+						$('#victory-name').html(computer.name + '!');
+					}else if (computer.name == 'Master Yoda'){
+						//If enemy has been defeated remove from defender area
+						$('#yoda').removeClass('enemy-fight').addClass('defeated');
+						$('#victory-message').removeClass('hide');
+						$('#victory-name').removeClass('hide');
+						$('#victory-name').html(computer.name + '!');
+					}else{
+						//If enemy has been defeated remove from defender area
+						$('#obi').removeClass('enemy-fight').addClass('defeated');
+						$('#victory-message').removeClass('hide');
+						$('#victory-name').removeClass('hide');
+						$('#victory-name').html(computer.name + '!');	
+					}
+				}
+			}
+			//Check if player's health is at or below zero
+			progressBarRight(computer.health);
+			progressBarLeft(player.health);
+			$('#fight-on').get(0).play();
+			defeatCheck();
+		});
 
-	function skywalkerAttack(){
-		player.attack+=5;
-		computer.health-=5;
-		if(computer.name == 'Darth Vader'){
-			vaderCounter();
-		}else if(computer.name == 'Master Yoda'){
-			yodaCounter();
-		}else{
-			obiCounter();			
-		}
-	};
+		//Check if player's health is at or below zero
+		function defeatCheck(){
+			if(player.health <= 0){
+				$('#defeat-message').removeClass('hide');
+				$('#defeat-name').removeClass('hide');
+				$('#defeat-name').html(computer.name + '!');	
+			}
+		};
 
-	function yodaAttack(){
-		player.attack+=5;
-		computer.health-=5;
-		if(computer.name == 'Darth Vader'){
-			vaderCounter();
-		}else if(computer.name == 'Luke Skywalker'){
-			skywalkerCounter();
-		}else{
-			obiCounter();			
-		}
-	};
+		 function progressBarLeft(percent) {
+     	$('#progress-left').animate({
+     		'width': (400 * percent)/100
+     	}, 1000);
+     };
 
-	function obiAttack(){
-		player.attack+=5;
-		computer.health-=5;
-		if(computer.name == 'Darth Vader'){
-			vaderCounter();
-		}else if(computer.name == 'Luke Skywalker'){
-			skywalkerCounter();
-		}else{
-			yodaCounter();			
-		}
-	};
+     function progressBarRight(percent) {
+     	$('#progress-right').animate({
+     		'width': (400 * percent)/100
+     	}, 1000);
+     };
+
+});
