@@ -118,6 +118,7 @@ h1{
 	right: 0;
 	height: 100%;
 	width: 240px;
+	z-index: 101;
 }
 
 .player-side{
@@ -158,6 +159,7 @@ h1{
 	background-color: #000000 !important;
 	border: 1px solid #FFFFFF;
 	margin: 0 auto;
+	cursor: pointer;
 }
 
 .friend{
@@ -167,6 +169,7 @@ h1{
 	margin-top: 25px;
 	left: 475px;
 	bottom: 0;
+	z-index: 100;
 }
 
 .enemy-fight{
@@ -175,7 +178,8 @@ h1{
 	position: absolute;
 	margin-top: 25px;
 	right: 475px;
-	bottom: 0;	
+	bottom: 0;
+	z-index: 100;
 }
 
 .enemy{
@@ -185,6 +189,7 @@ h1{
 	float: right;
 	position: relative;
 	clear: right;
+	cursor: pointer;
 	z-index: 100;
 }
 
@@ -192,28 +197,24 @@ h1{
 	background: url(../images/skywalker-card-small.png) no-repeat;
 	width: 128px;
 	height: 150px;
-	cursor: pointer;
 }
 
 #obi{
 	background: url(../images/obi-card-small.png) no-repeat;
 	width: 128px;
 	height: 150px;
-	cursor: pointer;
 }
 
 #yoda{
 	background: url(../images/yoda-card-small.png) no-repeat;
 	width: 128px;
 	height: 150px;
-	cursor: pointer;
 }
 
 #vader{
 	background: url(../images/vader-card-small.png) no-repeat;
 	width: 128px;
 	height: 150px;
-	cursor: pointer;
 }
 
 .attack-count{
@@ -250,6 +251,103 @@ h1{
 	text-align: center;
 	font-size: 30px;
 	cursor: pointer;
+}
+
+.fighter-left{
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+	z-index: 99;
+}
+
+.fighter-right{
+	position: absolute;
+	bottom: 0;
+	right: 20%;
+	z-index: 99;
+}
+
+#skywalker-left{
+	background: url(../images/img-skywalker-left.png) no-repeat;
+	width: 221px;
+	height: 375px;
+}
+
+#obi-left{
+	background: url(../images/img-obi-left.png) no-repeat;
+	width: 220px;
+	height: 375px;
+}
+
+#yoda-left{
+	background: url(../images/img-yoda-left.png) no-repeat;
+	width: 138px;
+	height: 275px;
+}
+
+#vader-left{
+	background: url(../images/img-vader-left.png) no-repeat;
+	width: 213px;
+	height: 375px;
+}
+
+#skywalker-right{
+	background: url(../images/img-skywalker-right.png) no-repeat;
+	width: 221px;
+	height: 375px;	
+}
+
+#obi-right{
+	background: url(../images/img-obi-right.png) no-repeat;
+	width: 220px;
+	height: 375px;
+}
+
+#yoda-right{
+	background: url(../images/img-yoda-right.png) no-repeat;
+	width: 138px;
+	height: 275px;
+}
+
+#vader-right{
+	background: url(../images/img-vader-right.png) no-repeat;
+	width: 213px;
+	height: 375px;
+}
+
+.select-msg-left{
+	top: 340px;
+	position: absolute;
+	border-bottom: 5px solid #FFFFFF;
+	padding-bottom: 7px;
+	color: #FFFFFF;
+  font-size: 48px;
+  left: 150px;
+  z-index: 99;
+}
+
+.select-msg-right{
+	top: 340px;
+	position: absolute;
+	border-bottom: 5px solid #FFFFFF;
+	padding-bottom: 7px;
+	color: #FFFFFF;
+  font-size: 48px;
+  right: 150px;
+  z-index: 99;
+}
+
+.select-mid{
+	top: 340px;
+	position: absolute;
+	color: #FFFFFF;
+  font-size: 48px;
+  text-decoration: underline;
+  width: 100%;
+  right: 0;
+  left: 0;
+  text-align: center;
+  z-index: 99;
 }
 
 .victory-msg{
