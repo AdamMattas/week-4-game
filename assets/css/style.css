@@ -1,3 +1,4 @@
+/*begin global styling*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,7 +18,9 @@ h1{
   margin-right: 0;
   font-weight: bold;
 }
+/*end global styling*/
 
+/*begin reusable display classes*/
 .defeated{
 	display: none;
 }
@@ -25,7 +28,9 @@ h1{
 .hide{
 	display: none;
 }
+/*end reusable display classes*/
 
+/*main background image*/
 .back{ 
   background: url(../images/star-wars.jpg) no-repeat;
   background-size: cover;
@@ -38,6 +43,7 @@ h1{
   left: 0;
 }
 
+/*begin header section classes*/
 .header{
 	background-color: #FFFFFF;
 	border-top: 5px solid #000000;
@@ -113,6 +119,18 @@ h1{
 	font-size: 32px;
 }
 
+.symbol{
+	position: absolute;
+	background: url(../images/rebel.png) no-repeat;
+	top: 20px;
+	left: 50%;
+	margin-left: -36px; 
+	height: 75px;
+	width: 71px;
+}
+/*end header section classes*/
+
+/*begin side edge classes*/
 .side-cover{
 	position: fixed;
 	right: 0;
@@ -138,23 +156,16 @@ h1{
 	width: 50px;
 	height: 374px;
 }
+/*end side edge classes*/
 
+/*main content wrapper*/
 .wrapper{
 	width: 90%;
   height: 100%;
 	margin: 0 auto;
 }
 
-.symbol{
-	position: absolute;
-	background: url(../images/rebel.png) no-repeat;
-	top: 20px;
-	left: 50%;
-	margin-left: -36px; 
-	height: 75px;
-	width: 71px;
-}
-
+/*begin character card classes*/
 .character{
 	background-color: #000000 !important;
 	border: 1px solid #FFFFFF;
@@ -232,7 +243,9 @@ h1{
 	color: #FFFFFF;
 	font-size: 14px;
 }
+/*end character card classes*/
 
+/*attack button*/
 .attack{
 	background-color: #03A508;
 	border: 1px solid #000000;
@@ -253,6 +266,7 @@ h1{
 	cursor: pointer;
 }
 
+/*begin character avatars*/
 .fighter-left{
 	position: absolute;
 	bottom: 0;
@@ -314,7 +328,9 @@ h1{
 	width: 213px;
 	height: 375px;
 }
+/*end character card classes*/
 
+/*game messages*/
 .select-msg-left{
 	top: 340px;
 	position: absolute;
@@ -397,3 +413,4 @@ h1{
   text-align: center;
   z-index: 99;
 }
+/*game messages*/
