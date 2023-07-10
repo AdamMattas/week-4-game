@@ -337,9 +337,9 @@ h1 {
 .select-msg-left {
   top: 340px;
   position: absolute;
-  border-bottom: 5px solid #ffffff;
+  border-bottom: 5px solid #000000;
   padding-bottom: 7px;
-  color: #ffffff;
+  color: #000000;
   font-size: 48px;
   left: 150px;
   z-index: 99;
@@ -348,9 +348,9 @@ h1 {
 .select-msg-right {
   top: 340px;
   position: absolute;
-  border-bottom: 5px solid #ffffff;
+  border-bottom: 5px solid #000000;
   padding-bottom: 7px;
-  color: #ffffff;
+  color: #000000;
   font-size: 48px;
   right: 150px;
   z-index: 99;
@@ -359,9 +359,11 @@ h1 {
 .select-mid {
   top: 340px;
   position: absolute;
-  color: #ffffff;
+  color: #000000;
   font-size: 48px;
   text-decoration: underline;
+  text-underline-offset: 16px;
+  text-decoration-thickness: 5px;
   width: 100%;
   right: 0;
   left: 0;
